@@ -5,61 +5,90 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class formulario extends Component {
+public class formulario {
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame();
-        JPanel panel = new JPanel();
-        JButton blueButton = new JButton("Azul");
-        JButton yellowButton = new JButton("Amarelo");
-        JButton redButton = new JButton("Vermelho");
-        JButton closeButton = new JButton("Fechar");
+        SwingUtilities.invokeLater(formulario::Formulario);
+    }
 
-        frmAmarelo frmAmarelo = new frmAmarelo();
+    private static void Formulario() {
 
-        closeButton.addActionListener(new ActionListener() {
+        JFrame formulario = new JFrame("Cores");
+        formulario.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        formulario.setSize(500, 500);
+        formulario.setLayout(new FlowLayout());
+
+        JButton btnFechar = new JButton("Fechar");
+        btnFechar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
             }
         });
 
-        yellowButton.addActionListener(new ActionListener() {
+        JButton btnAmarelo = new JButton("Amarelo");
+        btnAmarelo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frmAmarelo frmAmarelo = new frmAmarelo();
-                frmAmarelo.main(args);
+                FrmAmarelo();
             }
         });
 
-        redButton.addActionListener(new ActionListener() {
+        JButton btnAzul = new JButton("Azul");
+        btnAzul.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frmVermelho frmVermelho = new frmVermelho();
-                frmVermelho.main(args);
+                FrmAzul();
             }
         });
 
-        blueButton.addActionListener(new ActionListener() {
+        JButton btnVermelho = new JButton("Vermelho");
+        btnVermelho.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frmAzul frmAzul = new frmAzul();
-                frmAzul.main(args);
+                FrmVermelho();
             }
         });
 
-        frame.setLocation(100, 100);
-        frame.setSize(400, 400);
-        frame.setTitle("Formulário");
+        formulario.add(btnFechar);
+        formulario.add(btnAmarelo);
+        formulario.add(btnAzul);
+        formulario.add(btnVermelho);
+        formulario.setVisible(true);
+    }
 
-        panel.add(blueButton);
-        panel.add(yellowButton);
-        panel.add(redButton);
-        panel.add(closeButton);
+    protected static void FrmVermelho() {
+        JFrame frmVermelho = new JFrame("FrmVermelho");
+        frmVermelho.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frmVermelho.setSize(300, 200);
 
-        frame.getContentPane().add(panel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
+        JPanel panelVermelho = new JPanel();
+        panelVermelho.setBackground(Color.red);
+        frmVermelho.add(panelVermelho);
+        frmVermelho.setVisible(true);
+    }
+
+    protected static void FrmAzul() {
+        JFrame frmAzul = new JFrame("FrmAzul");
+        frmAzul.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frmAzul.setSize(300, 200);
+
+        JPanel panelAzul = new JPanel();
+        panelAzul.setBackground(Color.blue);
+        frmAzul.add(panelAzul);
+        frmAzul.setVisible(true);
 
     }
+
+    private static void FrmAmarelo() {
+        JFrame frmAmarelo = new JFrame("FrmAmarelo");
+        frmAmarelo.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frmAmarelo.setSize(300, 200);
+
+        JPanel panelAmarelo = new JPanel();
+        panelAmarelo.setBackground(Color.YELLOW);
+        frmAmarelo.add(panelAmarelo);
+        frmAmarelo.setVisible(true);
+    }
 }
+
