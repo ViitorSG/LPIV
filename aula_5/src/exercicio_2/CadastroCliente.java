@@ -19,12 +19,13 @@ public class CadastroCliente extends JFrame {
         JPanel panel = new JPanel(new GridLayout(5, 2));
 
         JLabel nomeLabel = new JLabel("Nome:");
-        nomeField = new JTextField();
         JLabel telefoneLabel = new JLabel("Telefone:");
-        telefoneField = new JTextField();
         JLabel emailLabel = new JLabel("E-mail:");
-        emailField = new JTextField();
         JLabel salarioLabel = new JLabel("Salário:");
+
+        nomeField = new JTextField();
+        telefoneField = new JTextField();
+        emailField = new JTextField();
         salarioField = new JTextField();
 
         JButton salvarButton = new JButton("Salvar");
